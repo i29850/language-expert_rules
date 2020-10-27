@@ -1,0 +1,72 @@
+name: 'Expert rules language'
+scopeName: 'expertRules'
+type: 'tree-sitter'
+parser: 'tree-sitter-expert-rules'
+fileTypes: ['rul']
+
+scopes:
+
+
+
+  'access_specifier1' : 'support.type'
+  'access_specifier' :  'constant.language.boolean.true'
+
+  'record_struct' : {match: "RECORD", scopes: 'entity.name.class'}
+  'record_struct' : {match: "END", scopes: 'entity.name.class'}
+
+  'composition_struct' : {match: "COMPOSITION", scopes: 'entity.name.class'}
+  'composition_struct' : {match: "END", scopes: 'entity.name.class'}
+
+  'depends_section' : {match: "NOT", scopes: 'entity.name.class'}
+  'rule_struct > then_body' : {match: 'END', scopes: 'entity.name.function'}
+
+  'comment' : 'comment'
+  'describe_section > string' : 'comment'
+  'describe_section' : 'comment'
+
+  'fst_lvl_access_scope > named_identifier:nth-child(0)' : 'support.type'
+
+  'snd_lvl_access_scope > named_identifier:nth-child(0)' : 'entity.name.class'
+
+  'function_declaration > named_identifier:nth-child(0)' : 'entity.name.function'
+
+  'named_identifier' : 'entity.name.variable'
+  'string' : 'string.quoted'
+  'integer' : 'constant.numeric'
+  'real_number' : 'constant.numeric'
+  'logical_operator' : 'entity.name.function'
+  'boolean_operator' : 'entity.name.function'
+
+  '''
+  ","
+  ''' : 'support.type'
+
+  '''
+  assignment_op,
+  arithmetic_assignment_operator,
+  comparison_operators,
+  binary_operator
+  ''' : 'source.cpp.keyword.operator'
+
+  'program' : {match: 'END', scopes: 'entity.constant'}
+
+  '''
+  "[",
+  "]",
+  "|",
+  "(",
+  ")"
+  ''' : 'none'
+
+  '''
+  "FACTS",
+  "RULES"
+  ''' : 'entity.constant'
+
+  '''
+  "RULE",
+  "GROUPS",
+  "DEPENDS",
+  "IF",
+  "THEN"
+  ''' : 'entity.name.function'

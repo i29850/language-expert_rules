@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle language-expert-rules",
+        "command": "language-expert-rules:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "language-expert-rules",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "language-expert-rules:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

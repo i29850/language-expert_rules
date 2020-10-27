@@ -1,0 +1,19 @@
+{
+  "name": "language-expert-rules",
+  "main": "./lib/language-expert-rules",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "language-expert-rules:toggle"
+  },
+  "repository": "https://github.com/atom/language-expert-rules",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+	"tree-sitter-expert-rules": "^1.1.5"
+  }
+}
